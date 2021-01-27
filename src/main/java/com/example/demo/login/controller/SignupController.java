@@ -2,16 +2,14 @@ package com.example.demo.login.controller;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-
-import javax.validation.Valid;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import com.example.demo.login.domain.model.GroupOrder;
 import com.example.demo.login.domain.model.SignupForm;
 
 @Controller
@@ -49,7 +47,7 @@ public class SignupController
 	// ユーザー登録画面のPOSTメソッド用コントローラー
 	// データバインドの結果の受け取り
 	@PostMapping("/signup")
-	public String postSignUp(@ModelAttribute @Valid SignupForm form, 
+	public String postSignUp(@ModelAttribute @Validated(GroupOrder.class) SignupForm form, 
 			BindingResult bindingResult,
 			Model model)
 	{
