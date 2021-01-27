@@ -6,3 +6,6 @@ https://github.com/y-sugiyama654/SpringProject/pull/1
 
 ##### 6章 データバインド&バリデーション
 https://github.com/y-sugiyama654/SpringProject/pull/2
+
+##### 7章 Spring AOP
+https://github.com/y-sugiyama654/SpringProject/pull/3
