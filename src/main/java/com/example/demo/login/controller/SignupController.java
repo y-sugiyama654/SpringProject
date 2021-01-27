@@ -3,6 +3,8 @@ package com.example.demo.login.controller;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -47,7 +49,7 @@ public class SignupController
 	// ユーザー登録画面のPOSTメソッド用コントローラー
 	// データバインドの結果の受け取り
 	@PostMapping("/signup")
-	public String postSignUp(@ModelAttribute SignupForm form, 
+	public String postSignUp(@ModelAttribute @Valid SignupForm form, 
 			BindingResult bindingResult,
 			Model model)
 	{
