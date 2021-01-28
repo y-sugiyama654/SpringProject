@@ -9,3 +9,6 @@ https://github.com/y-sugiyama654/SpringProject/pull/2
 
 ##### 7章 Spring AOP
 https://github.com/y-sugiyama654/SpringProject/pull/3
+
+##### 8章 Spring JDBC
+https://github.com/y-sugiyama654/SpringProject/pull/4
