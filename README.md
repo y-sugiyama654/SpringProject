@@ -12,3 +12,6 @@ https://github.com/y-sugiyama654/SpringProject/pull/3
 
 ##### 8章 Spring JDBC
 https://github.com/y-sugiyama654/SpringProject/pull/4
+
+##### 9章 例外ハンドリング
+https://github.com/y-sugiyama654/SpringProject/pull/5
