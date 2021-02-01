@@ -1,10 +1,14 @@
 package com.example.demo.login.controller;
 
+import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -73,14 +77,6 @@ public class HomeController
 		model.addAttribute("userListCount", count);
 		
 		return "login/homeLayout";
-	}
-	
-	// ユーザー一覧のCSV出力用メソッド
-	@GetMapping("/userList/csv")
-	public String getUserListCsv(Model model)
-	{
-		// 現段階では何もしない
-		return getUserList(model);
 	}
 	
 	// 動的URL
@@ -166,5 +162,30 @@ public class HomeController
 		
 		// ユーザー一覧画面を表示
 		return getUserList(model);
+	}
+	
+	// ユーザー一覧のCSV出力用処理
+	@GetMapping("/userList/csv")
+	public ResponseEntity<byte[]> getUserListCsv(Model model)
+	{
+		// ユーザーを全件取得して、CSVをサーバーに保存
+		userService.userCsvOut();
+		
+		byte[] bytes = null;
+		
+		try {
+			// サーバーに保存されているsample.csvファイルをbyteで取得する
+			bytes = userService.getFile("sample.csv");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		// HTTPヘッダーの設定
+		HttpHeaders header = new HttpHeaders();
+		header.add("Content-Type", "text/csv; cherset=UTF-8");
+		header.setContentDispositionFormData("filename", "sample.csv");
+		
+		// sample.csvを戻す
+		return new ResponseEntity<>(bytes, header, HttpStatus.OK);
 	}
 }

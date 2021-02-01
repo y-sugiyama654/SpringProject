@@ -145,8 +145,16 @@ public class UserDaoJdbcImpl implements UserDao
 
 	// Userテーブルの全データをCSVに出力
 	@Override
-	public void userCsvOut() throws DataAccessException {
+	public void userCsvOut() throws DataAccessException 
+	{
+		// M_USERテーブルのデータを全件取得するSQL
+		String sql = "SELECT * FROM m_user";
 		
+		// ResultSetExtractorの生成
+		UserRowCallbackHandler handler = new UserRowCallbackHandler();
+		
+		// SQLの実行とCSV出力
+		jdbc.query(sql, handler);
 	}
 
 }
