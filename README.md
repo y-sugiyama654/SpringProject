@@ -20,4 +20,4 @@ https://github.com/y-sugiyama654/SpringProject/pull/5
 https://github.com/y-sugiyama654/SpringProject/pull/6
 
 ##### 11章 RESTサービス
-https://github.com/y-sugiyama654/SpringProject/pull/７
+https://github.com/y-sugiyama654/SpringProject/pull/7
