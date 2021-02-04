@@ -18,3 +18,6 @@ https://github.com/y-sugiyama654/SpringProject/pull/5
 
 ##### 10章 Springのセキュリティ
 https://github.com/y-sugiyama654/SpringProject/pull/6
+
+##### 11章 RESTサービス
+https://github.com/y-sugiyama654/SpringProject/pull/７
