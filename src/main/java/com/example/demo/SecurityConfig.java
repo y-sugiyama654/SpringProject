@@ -75,6 +75,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 			.passwordParameter("password") // ログインページのパスワード
 			.defaultSuccessUrl("/home", true); // ログイン成功後の遷移先
 		
+		// ログアウト処理
+		http.logout()
+			.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+			.logoutUrl("/logout")
+			.logoutSuccessUrl("/login");
+		
 		// CSRF対策を向こうに設定（一時的）
 		http.csrf().disable();
 	}
