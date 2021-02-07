@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.util.matcher.RequestMatcher;
 
 // セキュリティ設定用クラス
 @EnableWebSecurity
@@ -64,7 +65,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 			.antMatchers("/webjars/**").permitAll() // webjarsへアクセス許可
 			.antMatchers("/css/**").permitAll() // cssへのアクセス許可
 			.antMatchers("/login").permitAll() // loginへの直リンク
-			.antMatchers("/signin").permitAll() // signinへの直リンク
+			.antMatchers("/signup").permitAll() // signupへの直リンク
+			.antMatchers("/rest/**").permitAll()
 			.antMatchers("/admin").hasAuthority("ROLE_ADMIN")
 			.anyRequest().authenticated(); // それ以外は直リンク禁止
 		
@@ -85,6 +87,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 		
 		// CSRF対策を向こうに設定（一時的）
 		// http.csrf().disable();
+		
+		// CSRFを無効にするURLを設定
+		RequestMatcher csrfMatcher = new RestMatcher("/rest/**");
+		
+		// RESTのみCSRF対策を無効にする
+		http.csrf().requireCsrfProtectionMatcher(csrfMatcher);
 	}
 	
 	@Override
