@@ -21,3 +21,6 @@ https://github.com/y-sugiyama654/SpringProject/pull/6
 
 ##### 11章 RESTサービス
 https://github.com/y-sugiyama654/SpringProject/pull/7
+
+##### 12章 Springテスト
+https://github.com/y-sugiyama654/SpringProject/pull/8
