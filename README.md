@@ -26,4 +26,4 @@ https://github.com/y-sugiyama654/SpringProject/pull/7
 https://github.com/y-sugiyama654/SpringProject/pull/8
 
 ##### 13章 Spring + MyBatis
-https://github.com/y-sugiyama654/SpringProject/pull/
+https://github.com/y-sugiyama654/SpringProject/pull/9
